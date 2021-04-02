@@ -32,15 +32,17 @@ public class Main {
 //
 //        int add = clientDAO.delete(client);
 //        System.out.println(add);
-        IDAOFactory daoFactory = DAOFactory.getInstance();
-        ClientDAO clientDAO = daoFactory.getClientDAO();
-        List<Client> clients = clientDAO.getAll();
-
-        for (Client client: clients) {
-            System.out.println(client.getId() + " " + client.getAge() + " " + client.getName() + " " + client.getPhone());
-        }
 
 
+//        IDAOFactory daoFactory = DAOFactory.getInstance();
+//        ClientDAO clientDAO = daoFactory.getClientDAO();
+//        List<Client> clients = clientDAO.getAll();
+//
+//        for (Client client: clients) {
+//            System.out.println(client.getId() + " " + client.getAge() + " " + client.getName() + " " + client.getPhone());
+//        }
+
+        Client client =
     }
 
 }

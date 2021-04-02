@@ -13,7 +13,7 @@ public class DAOFactory implements IDAOFactory {
 
     public static final String URL = "jdbc:mysql://127.0.0.1:3306/carsshop?serverTimezone=UTC";
     public static final  String USERNAME = "sayut61";
-    public static final String PASSWORD = "Sunk@r61_093";
+    public static final String PASSWORD = "Root1993";
 
     private DAOFactory() {
         try {

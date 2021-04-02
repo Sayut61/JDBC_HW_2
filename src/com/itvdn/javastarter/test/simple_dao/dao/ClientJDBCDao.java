@@ -4,6 +4,7 @@ import com.itvdn.javastarter.test.simple_dao.entity.Client;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class ClientJDBCDao extends AbstractDao implements ClientDAO {
 
     public static final String URL = "jdbc:mysql://127.0.0.1:3306/carsshop?serverTimezone=UTC";
     public static final  String USERNAME = "sayut61";
-    public static final String PASSWORD = "Sunk@r61_093";
+    public static final String PASSWORD = "Root1993";
     @Override
     protected Connection getConnection() {
         return super.getConnection();
@@ -56,7 +57,31 @@ public class ClientJDBCDao extends AbstractDao implements ClientDAO {
 
     @Override
     public int insert(Client client) {
-        return 0;
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            statement = connection.createStatement();
+
+            statement.addBatch("INSERT INTO clients(name, age, phone) VALUES ('Anton', 23, '+831331241')");
+            statement.addBatch("INSERT INTO clients(name, age, phone) VALUES ('Ira', 25, '+8313123523')");
+            statement.addBatch("INSERT INTO clients(name, age, phone) VALUES ('Vika', 28, '+831345346')");
+
+            int[] count = statement.executeBatch();
+            System.out.println("Строк добавлено в таблицу clients " + count.length);
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+                statement.close();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return -1;
     }
 
     @Override
